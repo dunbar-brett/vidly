@@ -11,18 +11,26 @@ namespace Vidly.Models
         // Represents objects state
         [Required]
         public int Id { get; set; }
+
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
+
         [Required]
+        [Display(Name = "Genre")]
         public byte GenreId { get; set; }
+
         [Required]
+        [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
+
         [Required]
         public DateTime DateAdded { get; set; }
-        [Required]
-        public short AmountInStock { get; set; }
 
+        [Required]
+        [Display(Name = "Number in Stock")]
+        public short AmountInStock { get; set; }
+        
         public Genre Genre { get; set; }
 
     }
