@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Vidly.Controllers;
 
 namespace Vidly.Models
 {
@@ -20,6 +21,11 @@ namespace Vidly.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Customer> Customers { get; set; } // Customer table in DB
+        public DbSet<MembershipType> MembershipTypes { get; set; }
+
+        // DB set for movies later
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
