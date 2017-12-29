@@ -20,10 +20,9 @@
 </table>
 
 
-@section scripts
-{
+@section scripts {
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             var table = $("#customers").DataTable({
                 ajax: {
                     url: "/api/customers",
@@ -48,22 +47,24 @@
                 ]
             });
 
-            $("#customers").on("click", ".js-delete", function () {
-                var button = $(this);
-                bootbox.confirm("Are you sure you want to delete this customer?",
-                    function(result) {
-                        if (result) {
-                            $.ajax({
-                                url: "/api/customers/" + button.attr("data-customer-id"),
-                                method: "DELETE",
-                                success: function () {
-                                    table.row(button.parents("tr")).remove().draw();
-                                }
-                            });
+            $("#customers").on("click",
+                ".js-delete",
+                function() {
+                    var button = $(this);
+                    bootbox.confirm("Are you sure you want to delete this customer?",
+                        function(result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/api/customers/" + button.attr("data-customer-id"),
+                                    method: "DELETE",
+                                    success: function() {
+                                        table.row(button.parents("tr")).remove().draw();
+                                    }
+                                });
+                            }
                         }
-                    }
-                );
-            });
+                    );
+                });
         });
-    </script>    
+    </script>
 }

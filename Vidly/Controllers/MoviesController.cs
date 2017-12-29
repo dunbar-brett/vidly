@@ -94,9 +94,9 @@ namespace Vidly.Controllers
         public ViewResult Index()
         {
             //var movies = _context.Movies.ToList();
-            var movies = _context.Movies.Include(m => m.Genre).ToList();
-
-            return View(movies);
+            //var movies = _context.Movies.Include(m => m.Genre).ToList();
+            // calls api/movies
+            return View();
         }
 
         public ActionResult Details(int id)
@@ -151,7 +151,7 @@ namespace Vidly.Controllers
 
         //    if (String.IsNullOrWhiteSpace(sortBy))
         //    {
-        //        sortBy = "Name";
+        //        sortBy = "GenreName";
         //    } 
 
         //    return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
